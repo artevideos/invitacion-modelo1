@@ -1,1 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mis 15 Años</title>
 
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #0f0f0f;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    /* PORTADA */
+    .hero {
+      height: 100vh;
+      background: url('principal.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.55);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      letter-spacing: 2px;
+    }
+
+    p {
+      margin-top: 10px;
+      font-size: 1.2rem;
+    }
+
+    .btn {
+      margin-top: 25px;
+      padding: 12px 25px;
+      border: none;
+      background: #d4af37;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* SECCIÓN */
+    section {
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 15px;
+      margin-top: 30px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    /* MÚSICA */
+    .music-control {
+      margin-top: 20px;
+    }
+
+    audio {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    /* ANIMACIÓN */
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- PORTADA -->
+  <div class="hero">
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+      <h1>Mis 15 Años</h1>
+      <p>Una noche única, un momento inolvidable</p>
+
+      <button class="btn" onclick="document.getElementById('contenido').scrollIntoView({behavior:'smooth'})">
+        Ver invitación
+      </button>
+
+      <div class="music-control">
+        <p style="margin-top:15px;">Música de fondo</p>
+        <audio controls>
+          <source src="musica.mp3" type="audio/mpeg">
+          Tu navegador no soporta audio.
+        </audio>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENIDO -->
+  <section id="contenido">
+    <h2>Te invito a celebrar conmigo</h2>
+    <p>Será una noche especial llena de alegría, emoción y recuerdos inolvidables.</p>
+
+    <div class="gallery">
+      <img src="foto1.png" alt="foto 1">
+      <img src="foto2.jpg" alt="foto 2">
+      <img src="principal.jpg" alt="foto principal">
+    </div>
+  </section>
+
+  <footer>
+    Hecho con ❤️ para un momento inolvidable
+  </footer>
+
+</body>
+</html>
