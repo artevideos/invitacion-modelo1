@@ -1,58 +1,94 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
+<meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Invitación Premium</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+<!-- 🔤 FUENTES (puedes cambiar aquí o agregar más) -->
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Montserrat:wght@300;500&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
+/* ==================================================
+   💼 CONFIGURACIÓN GLOBAL (NO TOCAR AQUÍ ABAJO)
+   ================================================== */
 :root {
-  --gold: #d4af37;
-  --bg: #0b0b0b;
+  --primary: #d4af37;
+  --bg: #000;
+  --text: #fff;
+
+  --title-font: 'Playfair Display', serif;
+  --body-font: 'Montserrat', sans-serif;
+
+  --title-size: 3rem;
+  --text-size: 1rem;
 }
 
+/* RESET */
 * { margin:0; padding:0; box-sizing:border-box; }
 
 body {
-  font-family:'Montserrat', sans-serif;
-  background:var(--bg);
-  color:white;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--body-font);
+  overflow-x:hidden;
 }
 
-/* HERO */
-.hero {
-  height:100vh;
-  background:url('principal.jpg') center/cover no-repeat;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  position:relative;
+/* =========================
+   🎬 BACKGROUND (VIDEO / IMG)
+   ========================= */
+.background {
+  position:fixed;
+  inset:0;
+  z-index:-1;
+  overflow:hidden;
+}
+
+.background video,
+.background img {
+  width:100%;
+  height:100%;
+  object-fit:cover;
 }
 
 .overlay {
   position:absolute;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.6);
+  inset:0;
+  background: rgba(0,0,0,0.55);
+}
+
+/* =========================
+   HERO
+   ========================= */
+.hero {
+  height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  position:relative;
 }
 
 .hero-content {
-  position:relative;
   z-index:2;
 }
 
 h1 {
-  font-family:'Playfair Display', serif;
-  font-size:3rem;
+  font-family: var(--title-font);
+  font-size: var(--title-size);
 }
 
+p {
+  font-size: var(--text-size);
+  opacity:0.9;
+  margin-top:10px;
+}
+
+/* BOTONES */
 .btn {
-  margin-top:15px;
+  margin-top:18px;
   padding:12px 22px;
-  background:var(--gold);
+  background: var(--primary);
   border:none;
   border-radius:30px;
   cursor:pointer;
@@ -66,7 +102,7 @@ section {
 }
 
 .box {
-  max-width:800px;
+  max-width:850px;
   margin:auto;
   background:#151515;
   padding:25px;
@@ -74,7 +110,7 @@ section {
   margin-bottom:25px;
 }
 
-/* COUNTDOWN */
+/* COUNTDOWN PRO */
 .countdown {
   display:flex;
   justify-content:center;
@@ -83,23 +119,22 @@ section {
   margin-top:15px;
 }
 
-.time-box {
-  background:#1f1f1f;
+.time {
+  background:#1c1c1c;
   padding:15px;
   border-radius:12px;
   min-width:80px;
 }
 
-.time-box span {
+.time span {
   display:block;
-  font-size:1.5rem;
-  color:var(--gold);
+  font-size:1.6rem;
+  color:var(--primary);
   font-weight:bold;
 }
 
 /* CARRUSEL */
 .carousel {
-  width:100%;
   overflow:hidden;
   border-radius:15px;
 }
@@ -113,57 +148,60 @@ section {
   width:100%;
   height:350px;
   object-fit:cover;
-  flex-shrink:0;
 }
 
 @keyframes slide {
-  0%{transform:translateX(0);}
-  33%{transform:translateX(-100%);}
-  66%{transform:translateX(-200%);}
-  100%{transform:translateX(0);}
+  0% {transform:translateX(0);}
+  33% {transform:translateX(-100%);}
+  66% {transform:translateX(-200%);}
+  100% {transform:translateX(0);}
 }
 
-/* BOTONES */
+/* LINKS */
 a.button {
   display:inline-block;
   margin-top:15px;
   padding:12px 20px;
-  background:var(--gold);
-  color:black;
+  background:var(--primary);
+  color:#000;
   border-radius:30px;
   text-decoration:none;
   font-weight:bold;
-}
-
-/* MÚSICA */
-.music-btn {
-  margin-top:15px;
-  background:#222;
-  color:white;
-  padding:10px 15px;
-  border-radius:20px;
-  border:1px solid var(--gold);
-  cursor:pointer;
 }
 </style>
 </head>
 
 <body>
 
+<!-- ==================================================
+     🎬 BACKGROUND (EDITABLE: VIDEO O IMAGEN)
+     ================================================== -->
+<div class="background">
+
+  <!-- OPCIÓN 1: VIDEO -->
+  <video autoplay muted loop playsinline>
+    <source src="fondo.mp4">
+  </video>
+
+  <!-- OPCIÓN 2: IMAGEN (si quieres usar imagen, BORRAS el video y dejas esto)
+  <img src="fondo.jpg">
+  -->
+
+  <div class="overlay"></div>
+</div>
+
 <!-- HERO -->
 <div class="hero">
-  <div class="overlay"></div>
-
   <div class="hero-content">
     <h1>Mis 15 Años</h1>
     <p>Una noche inolvidable</p>
 
-    <button class="btn" onclick="scrollToInfo()">Ver invitación</button>
+    <button class="btn" onclick="scrollToSection()">Ver invitación</button>
 
-    <button class="music-btn" onclick="toggleMusic()">🎵 Música</button>
+    <button class="btn" onclick="toggleMusic()">🎵 Música</button>
 
     <audio id="music">
-      <source src="musica.mp3" type="audio/mpeg">
+      <source src="musica.mp3">
     </audio>
   </div>
 </div>
@@ -176,29 +214,23 @@ a.button {
   <h2>⏳ Cuenta regresiva</h2>
 
   <div class="countdown">
-    <div class="time-box"><span id="days">0</span>Días</div>
-    <div class="time-box"><span id="hours">0</span>Horas</div>
-    <div class="time-box"><span id="minutes">0</span>Min</div>
-    <div class="time-box"><span id="seconds">0</span>Seg</div>
+    <div class="time"><span id="d">0</span>Días</div>
+    <div class="time"><span id="h">0</span>Horas</div>
+    <div class="time"><span id="m">0</span>Min</div>
+    <div class="time"><span id="s">0</span>Seg</div>
   </div>
 </div>
 
 <!-- UBICACIÓN -->
 <div class="box">
   <h2>📍 Ubicación</h2>
-  <a class="button" href="#" target="_blank">Ver en Google Maps</a>
+  <a class="button" id="mapLink" target="_blank">Ver ubicación</a>
 </div>
 
-<!-- 💬 CONFIRMAR ASISTENCIA (RESTAURADO) -->
+<!-- WHATSAPP -->
 <div class="box">
-  <h2>💬 Confirmar asistencia</h2>
-  <p>Confirma tu presencia por WhatsApp</p>
-
-  <a class="button"
-     href="https://wa.me/59899999999?text=Hola!%20Confirmo%20mi%20asistencia%20a%20los%2015%20años"
-     target="_blank">
-    Confirmar por WhatsApp
-  </a>
+  <h2>💬 Confirmación</h2>
+  <a class="button" id="waLink" target="_blank">Confirmar por WhatsApp</a>
 </div>
 
 <!-- GALERÍA -->
@@ -209,8 +241,6 @@ a.button {
     <div class="slides">
       <img src="foto1.png">
       <img src="foto2.jpg">
-      <img src="1año.jpg">
-      <img src="10añosnena2.jpg">
       <img src="principal.jpg">
     </div>
   </div>
@@ -219,37 +249,56 @@ a.button {
 </section>
 
 <script>
+/* ==================================================
+   ⚙️ CONFIG CENTRAL (EDITAR SOLO AQUÍ)
+   ================================================== */
+const CONFIG = {
 
-/* SCROLL */
-function scrollToInfo(){
-  document.getElementById("info").scrollIntoView({behavior:"smooth"});
-}
+  eventDate: "2026-12-20T20:00:00",
 
-/* MÚSICA */
-function toggleMusic(){
-  const music = document.getElementById("music");
+  whatsapp: "59899999999",
 
-  if(music.paused){
-    music.play();
-  } else {
-    music.pause();
-  }
-}
+  whatsappText: "Hola! Confirmo mi asistencia a los 15 años",
 
-/* COUNTDOWN */
-const eventDate = new Date("2026-12-20T20:00:00").getTime();
+  mapURL: "https://www.google.com/maps",
+
+};
+
+/* =========================
+   LINKS DINÁMICOS
+   ========================= */
+document.getElementById("waLink").href =
+  `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(CONFIG.whatsappText)}`;
+
+document.getElementById("mapLink").href = CONFIG.mapURL;
+
+/* =========================
+   COUNTDOWN
+   ========================= */
+const event = new Date(CONFIG.eventDate).getTime();
 
 setInterval(() => {
   const now = new Date().getTime();
-  const diff = eventDate - now;
+  const diff = event - now;
 
-  document.getElementById("days").innerText = Math.floor(diff/(1000*60*60*24));
-  document.getElementById("hours").innerText = Math.floor((diff/(1000*60*60))%24);
-  document.getElementById("minutes").innerText = Math.floor((diff/(1000*60))%60);
-  document.getElementById("seconds").innerText = Math.floor((diff/1000)%60);
+  document.getElementById("d").innerText = Math.floor(diff/(1000*60*60*24));
+  document.getElementById("h").innerText = Math.floor((diff/(1000*60*60))%24);
+  document.getElementById("m").innerText = Math.floor((diff/(1000*60))%60);
+  document.getElementById("s").innerText = Math.floor((diff/1000)%60);
 
 }, 1000);
 
+/* =========================
+   FUNCIONES
+   ========================= */
+function scrollToSection(){
+  document.getElementById("info").scrollIntoView({behavior:"smooth"});
+}
+
+function toggleMusic(){
+  const music = document.getElementById("music");
+  music.paused ? music.play() : music.pause();
+}
 </script>
 
 </body>
