@@ -82,6 +82,7 @@ body{
  margin-top:10px;
 }
 
+/* BOTONES */
 .btn{
  margin-top:18px;
  padding:12px 20px;
@@ -93,7 +94,18 @@ body{
  cursor:pointer;
 }
 
-/* FLECHA BAJAR */
+a.button{
+ display:inline-block;
+ margin-top:10px;
+ padding:12px 18px;
+ background:var(--primary);
+ color:#000;
+ border-radius:30px;
+ text-decoration:none;
+ font-weight:600;
+}
+
+/* FLECHA ABAJO */
 .scroll-down{
  position:absolute;
  bottom:20px;
@@ -121,21 +133,31 @@ body{
  -webkit-backdrop-filter: blur(14px);
 
  border: 1px solid rgba(255,255,255,0.08);
- text-align:center;
 
+ text-align:center;
  font-family:var(--body-font);
  font-weight:300;
 }
 
-/* BOTONES */
-a.button{
- display:inline-block;
- margin-top:10px;
- padding:12px 18px;
- background:var(--primary);
- color:#000;
- border-radius:30px;
- text-decoration:none;
+/* ================= COUNTDOWN RESTAURADO ================= */
+.countdown{
+ display:flex;
+ justify-content:center;
+ gap:12px;
+ flex-wrap:wrap;
+}
+
+.time{
+ background:#1c1c1c;
+ padding:15px;
+ border-radius:12px;
+ min-width:80px;
+}
+
+.time span{
+ font-size:1.5rem;
+ color:var(--primary);
+ display:block;
  font-weight:600;
 }
 
@@ -164,19 +186,13 @@ a.button{
  scroll-snap-align:center;
 }
 
-/* ANIMACIÓN FLECHA */
+/* FLECHA CARRUSEL */
 .swipe-hint{
  text-align:center;
  margin-top:8px;
  color:var(--primary);
  font-size:24px;
  animation:bounce 1.5s infinite;
-}
-
-/* ANIMACIÓN ENTRADA */
-@keyframes fadeUp{
- from{opacity:0; transform:translateY(25px);}
- to{opacity:1; transform:translateY(0);}
 }
 
 </style>
@@ -207,6 +223,11 @@ a.button{
   </div>
 
   <button class="btn" onclick="scrollToInfo()">Ver invitación</button>
+  <button class="btn" onclick="toggleMusic()">🎵 Música</button>
+
+  <audio id="music">
+   <source src="musica.mp3">
+  </audio>
 
   <div class="scroll-down">↓</div>
 
@@ -215,16 +236,20 @@ a.button{
 
 <section id="info">
 
+<!-- COUNTDOWN RESTAURADO -->
 <div class="box">
  <h2>Faltan...</h2>
+
  <div class="countdown">
   <div class="time"><span id="d"></span>Días</div>
   <div class="time"><span id="h"></span>Hs</div>
   <div class="time"><span id="m"></span>Min</div>
   <div class="time"><span id="s"></span>Seg</div>
  </div>
+
 </div>
 
+<!-- FECHA -->
 <div class="box">
  <h2>📅 Fecha y lugar</h2>
  <p>18 de Octubre</p>
@@ -233,6 +258,7 @@ a.button{
  <p>🕘 21:00 horas</p>
 </div>
 
+<!-- UBICACIÓN -->
 <div class="box">
  <h2>📍 ¿Cómo llegar?</h2>
  <a class="button" href="#">Clickeá aquí</a>
@@ -243,7 +269,6 @@ a.button{
  <h2>📸 Recuerdos</h2>
 
  <div class="carousel" id="carousel">
-
   <div class="slides">
    <img src="foto1.jpg">
    <img src="foto2.jpg">
@@ -256,20 +281,32 @@ a.button{
    <img src="foto9.jpg">
    <img src="foto10.jpg">
   </div>
-
  </div>
 
  <div class="swipe-hint">↓</div>
 </div>
 
+<!-- DRESS CODE -->
 <div class="box">
  <h2>👗 Vestimenta</h2>
  <p>Semiformal</p>
 </div>
 
+<!-- CONFIRMACIÓN RESTAURADA -->
 <div class="box">
- <h2>💌 Confirmación</h2>
- <a class="button" href="#">Confirmar asistencia</a>
+ <h2>💌 Tu presencia es muy importante</h2>
+
+ <a class="button" href="#">
+ Confirmar asistencia
+ </a>
+</div>
+
+<!-- MENSAJE FINAL RESTAURADO -->
+<div class="box">
+ <div class="elegant-script">
+  Te espero para compartir este momento tan especial…<br>
+  será una noche para recordar siempre ✨
+ </div>
 </div>
 
 </section>
@@ -299,34 +336,11 @@ function scrollToInfo(){
  document.getElementById("info").scrollIntoView({behavior:"smooth"});
 }
 
-/* 🎯 CARRUSEL AUTO */
-const carousel = document.getElementById("carousel");
-
-let scrollAmount = 0;
-
-function autoScroll(){
- const max = carousel.scrollWidth - carousel.clientWidth;
-
- if(scrollAmount >= max){
-  scrollAmount = 0;
- } else {
-  scrollAmount += carousel.clientWidth;
- }
-
- carousel.scrollTo({
-  left: scrollAmount,
-  behavior:"smooth"
- });
+/* MUSIC */
+function toggleMusic(){
+ const m=document.getElementById("music");
+ m.paused ? m.play() : m.pause();
 }
-
-let auto = setInterval(autoScroll, 3500);
-
-/* pausa en interacción */
-carousel.addEventListener("touchstart", ()=> clearInterval(auto));
-
-carousel.addEventListener("touchend", ()=>{
- auto = setInterval(autoScroll, 3500);
-});
 
 </script>
 
