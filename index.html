@@ -199,6 +199,10 @@ a.button:hover{
  color: var(--primary);
  font-weight: 600;
  display: block;
+ .time small{
+ font-size: 0.8rem;
+ color: #ccc;
+ margin-top: 5px;
 }
 
 /* NETFLIX SLIDER */
@@ -276,14 +280,24 @@ a.button:hover{
 
 <section id="info">
 
-<div class="box">
- <h2>Faltan...</h2>
- <div class="countdown">
-  <div class="time"><span id="d"></span>Días</div>
-  <div class="time"><span id="h"></span>Hs</div>
-  <div class="time"><span id="m"></span>Min</div>
-  <div class="time"><span id="s"></span>Seg</div>
- </div>
+<div class="time">
+  <span id="d"></span>
+  <small>Días</small>
+</div>
+
+<div class="time">
+  <span id="h"></span>
+  <small>Hs</small>
+</div>
+
+<div class="time">
+  <span id="m"></span>
+  <small>Min</small>
+</div>
+
+<div class="time">
+  <span id="s"></span>
+  <small>Seg</small>
 </div>
 
 <div class="box">
