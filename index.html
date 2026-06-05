@@ -19,7 +19,6 @@
  --body-font:'Montserrat', sans-serif;
 }
 
-/* RESET */
 *{
  margin:0;
  padding:0;
@@ -33,7 +32,7 @@ body{
  overflow-x:hidden;
 }
 
-/* ================= BACKGROUND ================= */
+/* BACKGROUND */
 .background{
  position:fixed;
  inset:0;
@@ -54,7 +53,7 @@ body{
  background:rgba(0,0,0,0.25);
 }
 
-/* ================= HERO ================= */
+/* HERO */
 .hero{
  height:100vh;
  display:flex;
@@ -92,14 +91,9 @@ body{
  color:#000;
  font-weight:600;
  cursor:pointer;
- transition:0.3s;
 }
 
-.btn:hover{
- transform:scale(1.03);
-}
-
-/* ================= FLECHA BAJAR ================= */
+/* FLECHA BAJAR */
 .scroll-down{
  position:absolute;
  bottom:20px;
@@ -115,7 +109,7 @@ body{
  50%{transform:translate(-50%,10px);}
 }
 
-/* ================= BOXES PREMIUM ================= */
+/* BOXES */
 .box{
  max-width:850px;
  margin:20px auto;
@@ -123,51 +117,17 @@ body{
  border-radius:20px;
 
  background: rgba(0,0,0,0.25);
-
  backdrop-filter: blur(14px);
  -webkit-backdrop-filter: blur(14px);
 
  border: 1px solid rgba(255,255,255,0.08);
-
- box-shadow: 0 10px 30px rgba(0,0,0,0.35);
-
  text-align:center;
-
- animation: fadeUp 0.8s ease both;
 
  font-family:var(--body-font);
  font-weight:300;
- letter-spacing:0.3px;
 }
 
-.box h2{
- font-family:var(--soft-font);
- font-size:20px;
- margin-bottom:10px;
-}
-
-/* ================= COUNTDOWN ================= */
-.countdown{
- display:flex;
- justify-content:center;
- gap:12px;
- flex-wrap:wrap;
-}
-
-.time{
- background:#1c1c1c;
- padding:15px;
- border-radius:12px;
- min-width:80px;
-}
-
-.time span{
- font-size:1.5rem;
- color:var(--primary);
- display:block;
-}
-
-/* ================= BOTONES ================= */
+/* BOTONES */
 a.button{
  display:inline-block;
  margin-top:10px;
@@ -177,20 +137,15 @@ a.button{
  border-radius:30px;
  text-decoration:none;
  font-weight:600;
- transition:0.3s;
 }
 
-a.button:hover{
- transform:scale(1.03);
-}
-
-/* ================= CARRUSEL ================= */
+/* CARRUSEL */
 .carousel{
  overflow-x:auto;
  scroll-snap-type:x mandatory;
  display:flex;
- border-radius:15px;
  -webkit-overflow-scrolling: touch;
+ border-radius:15px;
 }
 
 .carousel::-webkit-scrollbar{
@@ -207,10 +162,9 @@ a.button:hover{
  height:380px;
  object-fit:cover;
  scroll-snap-align:center;
- border-radius:12px;
 }
 
-/* ================= FLECHA CARRUSEL ================= */
+/* ANIMACIÓN FLECHA */
 .swipe-hint{
  text-align:center;
  margin-top:8px;
@@ -219,16 +173,10 @@ a.button:hover{
  animation:bounce 1.5s infinite;
 }
 
-/* ================= ANIMACIÓN ================= */
+/* ANIMACIÓN ENTRADA */
 @keyframes fadeUp{
- from{
-  opacity:0;
-  transform:translateY(25px);
- }
- to{
-  opacity:1;
-  transform:translateY(0);
- }
+ from{opacity:0; transform:translateY(25px);}
+ to{opacity:1; transform:translateY(0);}
 }
 
 </style>
@@ -259,11 +207,6 @@ a.button:hover{
   </div>
 
   <button class="btn" onclick="scrollToInfo()">Ver invitación</button>
-  <button class="btn" onclick="toggleMusic()">🎵 Música</button>
-
-  <audio id="music">
-   <source src="musica.mp3">
-  </audio>
 
   <div class="scroll-down">↓</div>
 
@@ -272,7 +215,6 @@ a.button:hover{
 
 <section id="info">
 
-<!-- COUNTDOWN -->
 <div class="box">
  <h2>Faltan...</h2>
  <div class="countdown">
@@ -283,32 +225,24 @@ a.button:hover{
  </div>
 </div>
 
-<!-- FECHA Y LUGAR -->
 <div class="box">
  <h2>📅 Fecha y lugar</h2>
-
  <p>18 de Octubre</p>
  <p>Salón Aurora Palace</p>
- <p style="opacity:0.8;">Avenida Las Flores 2020</p>
-
- <p style="margin-top:10px;">
-  🕘 A las 21:00 horas
- </p>
+ <p>Avenida Las Flores 2020</p>
+ <p>🕘 21:00 horas</p>
 </div>
 
-<!-- UBICACIÓN -->
 <div class="box">
  <h2>📍 ¿Cómo llegar?</h2>
- <a class="button" href="https://www.google.com/maps" target="_blank">
-  Clickeá aquí para saber cómo llegar
- </a>
+ <a class="button" href="#">Clickeá aquí</a>
 </div>
 
 <!-- CARRUSEL -->
 <div class="box">
  <h2>📸 Recuerdos</h2>
 
- <div class="carousel">
+ <div class="carousel" id="carousel">
 
   <div class="slides">
    <img src="foto1.jpg">
@@ -328,29 +262,14 @@ a.button:hover{
  <div class="swipe-hint">↓</div>
 </div>
 
-<!-- DRESS CODE -->
 <div class="box">
  <h2>👗 Vestimenta</h2>
  <p>Semiformal</p>
 </div>
 
-<!-- CONFIRMAR -->
 <div class="box">
- <h2>💌 Tu presencia es muy importante</h2>
-
- <a class="button"
- href="https://wa.me/59895090806?text=Hola! Confirmo mi asistencia"
- target="_blank">
- Confirmar asistencia
- </a>
-</div>
-
-<!-- MENSAJE FINAL -->
-<div class="box">
- <div class="elegant-script">
-  Te espero para compartir este momento tan especial…<br>
-  será una noche para recordar siempre ✨
- </div>
+ <h2>💌 Confirmación</h2>
+ <a class="button" href="#">Confirmar asistencia</a>
 </div>
 
 </section>
@@ -365,11 +284,9 @@ const CONFIG = {
 document.getElementById("name").innerText = CONFIG.name;
 
 /* COUNTDOWN */
-const event = new Date(CONFIG.eventDate).getTime();
-
 setInterval(()=>{
  const now = new Date().getTime();
- const diff = event - now;
+ const diff = new Date(CONFIG.eventDate).getTime() - now;
 
  document.getElementById("d").innerText=Math.floor(diff/86400000);
  document.getElementById("h").innerText=Math.floor((diff%86400000)/3600000);
@@ -377,16 +294,39 @@ setInterval(()=>{
  document.getElementById("s").innerText=Math.floor((diff%60000)/1000);
 },1000);
 
-/* MUSIC */
-function toggleMusic(){
- const m=document.getElementById("music");
- m.paused ? m.play() : m.pause();
-}
-
 /* SCROLL */
 function scrollToInfo(){
  document.getElementById("info").scrollIntoView({behavior:"smooth"});
 }
+
+/* 🎯 CARRUSEL AUTO */
+const carousel = document.getElementById("carousel");
+
+let scrollAmount = 0;
+
+function autoScroll(){
+ const max = carousel.scrollWidth - carousel.clientWidth;
+
+ if(scrollAmount >= max){
+  scrollAmount = 0;
+ } else {
+  scrollAmount += carousel.clientWidth;
+ }
+
+ carousel.scrollTo({
+  left: scrollAmount,
+  behavior:"smooth"
+ });
+}
+
+let auto = setInterval(autoScroll, 3500);
+
+/* pausa en interacción */
+carousel.addEventListener("touchstart", ()=> clearInterval(auto));
+
+carousel.addEventListener("touchend", ()=>{
+ auto = setInterval(autoScroll, 3500);
+});
 
 </script>
 
