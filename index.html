@@ -163,26 +163,32 @@ a.button{
  font-weight:bold;
 }
 
-/* ================= CARRUSEL ================= */
+/* ================= CARRUSEL PRO ================= */
+
 .carousel{
  overflow:hidden;
  border-radius:15px;
+ position:relative;
 }
 
 .slides{
  display:flex;
- animation:slide 20s linear infinite;
+ width:calc(100% * 10); /* 10 fotos */
+ animation:scroll 25s linear infinite;
 }
 
 .slides img{
  width:100%;
+ max-width:850px;
  height:380px;
  object-fit:cover;
+ flex-shrink:0;
 }
 
-@keyframes slide{
+/* animación suave continua */
+@keyframes scroll{
  0%{transform:translateX(0);}
- 100%{transform:translateX(-900%);}
+ 100%{transform:translateX(-50%);}
 }
 
 /* ================= ANIMACIÓN ================= */
