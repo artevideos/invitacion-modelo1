@@ -1,413 +1,675 @@
+Sí, copiá todo esto y pegalo en tu archivo `index.html` de GitHub:
+
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Invitación - 15 años</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&family=Cormorant+Garamond:wght@400;500;600;700&family=Dancing+Script:wght@500;600;700&family=Great+Vibes&family=Libre+Baskerville:wght@400;700&family=Lora:wght@400;500;600;700&family=Marcellus&family=Montserrat:wght@400;500;600;700&family=Parisienne&family=Playfair+Display:wght@500;600;700&family=Quicksand:wght@400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-
-:root{
- --primary:#d8a7b1;
- --bg:#000;
- --text:#fff;
-
- --title-font:'Great Vibes', cursive;
- --body-font:'Cormorant Garamond', serif;
+:root {
+  --color-principal: #e8b7c6;
+  --color-secundario: #f7dde5;
+  --color-box: rgba(255, 244, 248, 0.18);
+  --color-box-borde: rgba(255, 255, 255, 0.24);
+  --color-fondo: #080607;
+  --color-texto: #fff;
+  --color-texto-suave: rgba(255, 255, 255, 0.78);
+  --sombra: rgba(0, 0, 0, 0.28);
+  --title-font: 'Great Vibes', cursive;
+  --body-font: 'Cormorant Garamond', serif;
 }
 
-*{
- margin:0;
- padding:0;
- box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
- font-family:var(--body-font);
- background:var(--bg);
- color:var(--text);
- overflow-x:hidden;
- padding-bottom:60px;
+html {
+  scroll-behavior: smooth;
 }
 
-/* BACKGROUND */
-.background{
- position:fixed;
- inset:0;
- z-index:-1;
+body {
+  font-family: var(--body-font);
+  background: var(--color-fondo);
+  color: var(--color-texto);
+  overflow-x: hidden;
+  padding-bottom: 56px;
 }
 
-.background video{
- width:100%;
- height:100%;
- object-fit:cover;
- filter:brightness(0.55) contrast(1.1) saturate(1.1);
- transform:scale(1.05);
+.background {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.16), transparent 34%),
+    var(--color-fondo);
 }
 
-.overlay{
- position:absolute;
- inset:0;
- background:rgba(0,0,0,0.25);
+.background video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.52) contrast(1.08) saturate(1.08);
+  transform: scale(1.04);
 }
 
-/* HERO */
-.hero{
- height:100vh;
- display:flex;
- align-items:center;
- justify-content:center;
- text-align:center;
- padding:20px;
- position:relative;
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.34), rgba(0, 0, 0, 0.55)),
+    radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.12), transparent 35%);
 }
 
-.nombrecumpleanera{
- font-family:var(--title-font);
- font-size:10rem;
- margin-top:-80px;
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 24px 18px 70px;
+  position: relative;
 }
 
-.mis15{
- font-family:var(--title-font);
- font-size:6rem;
- margin-top:11px;
- color:var(--primary);
+.hero-content {
+  width: min(900px, 100%);
 }
 
-.textos{
- font-family:var(--title-font);
- font-size:5rem;
- margin-top:50px;
+.nombrecumpleanera {
+  font-family: var(--title-font);
+  font-size: clamp(5.5rem, 16vw, 11rem);
+  line-height: 0.9;
+  text-shadow: 0 12px 42px var(--sombra);
 }
 
-/* BOTONES */
+.mis15 {
+  font-family: var(--title-font);
+  font-size: clamp(3.5rem, 9vw, 6.4rem);
+  color: var(--color-principal);
+  line-height: 1;
+  margin-top: 10px;
+}
+
+.frase-hero,
+.frase-final {
+  font-family: var(--title-font);
+  font-size: clamp(2rem, 6vw, 4.8rem);
+  line-height: 1.05;
+  margin-top: 38px;
+  text-shadow: 0 10px 34px var(--sombra);
+}
+
+.acciones {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
 .btn,
-a.button{
- font-family: var(--body-font);
- font-weight: 600;
- letter-spacing: 0.5px;
-
- padding:12px 20px;
- border-radius:30px;
-
- background: var(--primary);
- color:#000;
-
- border:none;
- text-decoration:none;
-
- display:inline-block;
- cursor:pointer;
-
- transition: all 0.3s ease;
-
- box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+a.button {
+  font-family: var(--body-font);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-principal), var(--color-secundario));
+  color: #211318;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 46px;
+  cursor: pointer;
+  transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 10px 28px var(--sombra);
 }
 
 .btn:hover,
-a.button:hover{
- transform: translateY(-2px);
- filter: brightness(1.1);
-}
-.hero .btn{
- margin-top: 25px;
+a.button:hover {
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 34px var(--sombra);
 }
 
-.hero .btn + .btn{
- margin-left: 10px;
-}
-/* FLECHA */
-.scroll-down{
- position:absolute;
- bottom:20px;
- left:50%;
- transform:translateX(-50%);
- color:var(--primary);
- font-size:30px;
- animation:bounce 1.5s infinite;
+.scroll-down {
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--color-principal);
+  font-size: 30px;
+  animation: bounce 1.5s infinite;
 }
 
-@keyframes bounce{
- 0%,100%{transform:translate(-50%,0);}
- 50%{transform:translate(-50%,10px);}
+@keyframes bounce {
+  0%, 100% { transform: translate(-50%, 0); }
+  50% { transform: translate(-50%, 10px); }
 }
 
-/* BOXES */
-.box{
- max-width:850px;
- margin:20px auto;
- padding:28px;
- border-radius:20px;
-
- background: rgba(0,0,0,0.15);
- backdrop-filter: blur(16px);
- -webkit-backdrop-filter: blur(16px);
-
- border: 1px solid rgba(255,255,255,0.08);
-
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
-
- text-align:center;
+#info {
+  padding: 8px 16px 42px;
 }
 
-.box h2{
- display:flex;
- align-items:center;
- justify-content:center;
- gap:10px;
-
- font-family: var(--body-font);
- font-size: 1.5rem;
- font-weight: 600;
- color: var(--primary);
- letter-spacing: 1px;
-
- margin-bottom: 20px;
+.box {
+  width: min(880px, 100%);
+  margin: 20px auto;
+  padding: clamp(22px, 4vw, 34px);
+  border-radius: 18px;
+  background: var(--color-box);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--color-box-borde);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-/* SOLO FECHA Y LUGAR (NO TOCAR INTERLINEADO) */
-.box:nth-of-type(2) p{
- line-height: 2;
+.box h2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: clamp(1.35rem, 4vw, 1.75rem);
+  font-weight: 700;
+  color: var(--color-principal);
+  letter-spacing: 0.6px;
+  margin-bottom: 18px;
 }
 
-/* COUNTDOWN */
-.countdown{
- display:flex;
- flex-direction:row;
- justify-content:center;
- align-items:center;
- gap:12px;
- flex-wrap:nowrap;
+.box p {
+  font-size: 1.25rem;
+  line-height: 1.65;
+  color: var(--color-texto);
 }
 
-.time{
- display:flex;
- flex-direction:column;
- align-items:center;
- justify-content:center;
-
- background:#1c1c1c;
- padding:15px;
- border-radius:12px;
- min-width:80px;
+.detalle-evento p {
+  line-height: 1.9;
 }
 
-.time span{
- font-size:1.5rem;
- color:var(--primary);
- font-weight:600;
- display:block;
+.countdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(62px, 1fr));
+  gap: 10px;
+  width: min(460px, 100%);
 }
 
-.time small{
- font-size:0.8rem;
- color:#ccc;
- margin-top:5px;
+.time {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 82px;
+  padding: 12px 8px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.26);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-/* SLIDER */
-.netflix-slider{
- position:relative;
- width:100%;
- height:260px;
- overflow:hidden;
- border-radius:15px;
+.time span {
+  font-size: clamp(1.45rem, 5vw, 2rem);
+  color: var(--color-secundario);
+  font-weight: 700;
+  display: block;
 }
 
-.slide{
- position:absolute;
- inset:0;
- width:100%;
- height:100%;
- object-fit:cover;
- opacity:0;
- transition:opacity 1.2s ease;
+.time small {
+  font-size: 0.83rem;
+  color: var(--color-texto-suave);
+  margin-top: 5px;
 }
 
-.slide.active{
- opacity:1;
+.carousel {
+  position: relative;
+  width: 100%;
 }
 
-/* RESPONSIVE */
-@media (max-width:768px){
-
-.nombrecumpleanera{ font-size:5rem; }
-.mis15{ font-size:4rem; }
-.textos{ font-size:1.8rem; }
-
-.box{
- margin:15px;
- padding:20px;
+.carousel-viewport {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  touch-action: pan-y;
 }
 
+.carousel-track {
+  display: flex;
+  height: clamp(260px, 56vw, 430px);
+  transition: transform 0.55s ease;
 }
 
+.slide {
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  pointer-events: none;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: rgba(0, 0, 0, 0.42);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 2;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.62);
+}
+
+.carousel-btn.prev {
+  left: 12px;
+}
+
+.carousel-btn.next {
+  right: 12px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255, 255, 255, 0.42);
+  cursor: pointer;
+}
+
+.carousel-dot.active {
+  background: var(--color-principal);
+  transform: scale(1.35);
+}
+
+.frase-final {
+  margin: 0 0 20px;
+}
+
+@media (max-width: 560px) {
+  .acciones {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn,
+  a.button {
+    width: min(270px, 100%);
+  }
+
+  .countdown {
+    gap: 8px;
+  }
+
+  .time {
+    min-height: 74px;
+    padding: 10px 4px;
+  }
+
+  .carousel-btn {
+    width: 38px;
+    height: 38px;
+  }
+}
 </style>
 </head>
 
 <body>
 
 <div class="background">
- <video autoplay muted loop playsinline>
-  <source src="fondo.mp4">
- </video>
- <div class="overlay"></div>
+  <video autoplay muted loop playsinline>
+    <source src="fondo.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
 </div>
 
-<div class="hero">
- <div>
+<main>
+  <section class="hero">
+    <div class="hero-content">
+      <h1 id="name" class="nombrecumpleanera"></h1>
+      <div class="mis15">Mis 15 años</div>
 
-  <h1 id="name" class="nombrecumpleanera"></h1>
+      <div class="frase-hero">
+        Se acerca la noche tan soñada...<br>
+        y deseo compartirla contigo
+      </div>
 
-  <div class="mis15">Mis 15 años</div>
+      <div class="acciones">
+        <button class="btn" type="button" onclick="scrollToInfo()">Ver invitación</button>
+        <button class="btn" type="button" onclick="toggleMusic()"><i class="fa-solid fa-music"></i> Música</button>
+      </div>
 
-  <div class="textos">
-   Se acerca la noche tan soñada…<br>
-   y deseo compartirla contigo ✨
-  </div>
+      <audio id="music" preload="auto">
+        <source src="musica.mp3" type="audio/mpeg">
+      </audio>
 
-  <button class="btn" onclick="scrollToInfo()">Ver invitación</button>
-  <button class="btn" onclick="toggleMusic()">🎵 Música</button>
+      <div class="scroll-down" aria-hidden="true">↓</div>
+    </div>
+  </section>
 
-  <audio id="music">
-   <source src="musica.mp3">
-  </audio>
+  <section id="info">
+    <div class="box">
+      <h2>Faltan...</h2>
+      <div class="countdown">
+        <div class="time"><span id="d">0</span><small>Días</small></div>
+        <div class="time"><span id="h">0</span><small>Hs</small></div>
+        <div class="time"><span id="m">0</span><small>Min</small></div>
+        <div class="time"><span id="s">0</span><small>Seg</small></div>
+      </div>
+    </div>
 
-  <div class="scroll-down">↓</div>
+    <div class="box detalle-evento">
+      <h2><i class="fa-regular fa-calendar"></i> Fecha y lugar</h2>
+      <p id="dateText"></p>
+      <p id="timeText"></p>
+      <p id="venueText"></p>
+      <p id="addressText"></p>
+    </div>
 
- </div>
-</div>
+    <div class="box">
+      <h2><i class="fa-solid fa-location-dot"></i> Mira cómo llegar</h2>
+      <a id="mapLink" class="button" href="#" target="_blank" rel="noopener">Ver mapa</a>
+    </div>
 
-<section id="info">
+    <div class="box">
+      <h2><i class="fa-regular fa-image"></i> Mis recuerdos</h2>
+      <div class="carousel" aria-label="Carrete de fotos">
+        <button class="carousel-btn prev" type="button" aria-label="Foto anterior"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="carousel-viewport">
+          <div id="carouselTrack" class="carousel-track"></div>
+        </div>
+        <button class="carousel-btn next" type="button" aria-label="Foto siguiente"><i class="fa-solid fa-chevron-right"></i></button>
+        <div id="carouselDots" class="carousel-dots" aria-hidden="true"></div>
+      </div>
+    </div>
 
-<!-- COUNTDOWN CORRECTO -->
-<div class="box">
- <h2>Faltan...</h2>
+    <div class="box">
+      <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Dress code</h2>
+      <p id="dressCodeText"></p>
+    </div>
 
- <div class="countdown">
-  <div class="time"><span id="d"></span><small>Días</small></div>
-  <div class="time"><span id="h"></span><small>Hs</small></div>
-  <div class="time"><span id="m"></span><small>Min</small></div>
-  <div class="time"><span id="s"></span><small>Seg</small></div>
- </div>
-</div>
-
-<div class="box">
- <h2><i class="fa-regular fa-calendar"></i> Fecha y lugar</h2>
- <p>Sábado 10 de octubre</p>
- <p>21:00 horas</p>
- <p>Salón Aurora Palace</p>
- <p>Avenida Las Flores 2020</p>
-</div>
-
-<div class="box">
- <h2><i class="fa-solid fa-location-dot"></i> Mira cómo llegar</h2>
- <a class="button" href="https://maps.app.goo.gl/wWyTSPxvvRapRhbP7">Ver Mapa</a>
-</div>
-
-<div class="box">
- <h2><i class="fa-regular fa-image"></i> Mis Recuerdos</h2>
-
- <div class="netflix-slider">
-  <img class="slide active" src="foto1.jpg">
-  <img class="slide" src="foto2.jpg">
-  <img class="slide" src="foto3.jpg">
-  <img class="slide" src="foto4.jpg">
-  <img class="slide" src="foto5.jpg">
-  <img class="slide" src="foto6.jpg">
-  <img class="slide" src="foto7.jpg">
-  <img class="slide" src="foto8.jpg">
-  <img class="slide" src="foto9.jpg">
-  <img class="slide" src="foto10.jpg">
- </div>
-
-</div>
-
-<div class="box">
- <h2><i class="fa-solid fa-wand-magic-sparkles"></i> Dress Code</h2>
- <p>Semiformal</p>
-</div>
-
-<div class="box">
-
-<div class="textos" style="margin-bottom:15px;">
- Te espero para compartir<br>
- este momento tan especial…<br>
- Será una noche<br>
- para recordar siempre ✨
-</div>
-
- <a class="button" href="https://wa.me/59895090806?text=Hola,%20quiero%20confirmar%20mi%20asistencia%20al%20cumpleaños%20de%20Sofía">
- Confirmar asistencia
-</a>
-
-</div>
-
-</section>
+    <div class="box">
+      <div class="frase-final">
+        Te espero para compartir<br>
+        este momento tan especial...<br>
+        Será una noche para recordar siempre
+      </div>
+      <a id="confirmLink" class="button" href="#" target="_blank" rel="noopener">Confirmar asistencia</a>
+    </div>
+  </section>
+</main>
 
 <script>
-
+/*
+  CAMBIOS FACILES
+  1. Cambia los datos de la invitacion en CONFIG.
+  2. Para cambiar colores, cambia solo el nombre de "paleta".
+     Opciones: "rosa", "lila", "celeste", "dorado", "verde".
+  3. Para cambiar fuentes, cambia solo el nombre de "fuentes".
+     Opciones: "elegante", "romantica", "moderna", "dulce", "clasica", "glam".
+*/
 const CONFIG = {
- name:"Sofía",
- eventDate:"2026-10-10T21:00:00"
+  paleta: "rosa",
+  fuentes: "elegante",
+  nombre: "Sofía",
+  fechaEvento: "2026-10-10T21:00:00",
+  fechaTexto: "Sábado 10 de octubre",
+  horaTexto: "21:00 horas",
+  salon: "Salón Aurora Palace",
+  direccion: "Avenida Las Flores 2020",
+  mapa: "https://maps.app.goo.gl/wWyTSPxvvRapRhbP7",
+  dressCode: "Semiformal",
+  whatsapp: "59895090806",
+  mensajeWhatsApp: "Hola, quiero confirmar mi asistencia al cumpleaños de Sofía",
+  fotos: [
+    "foto1.jpg",
+    "foto2.jpg",
+    "foto3.jpg",
+    "foto4.jpg",
+    "foto5.jpg",
+    "foto6.jpg",
+    "foto7.jpg",
+    "foto8.jpg",
+    "foto9.jpg",
+    "foto10.jpg"
+  ]
 };
 
-document.getElementById("name").innerText = CONFIG.name;
+const PALETAS = {
+  rosa: {
+    principal: "#e8b7c6",
+    secundario: "#ffe3eb",
+    box: "rgba(255, 235, 242, 0.18)",
+    borde: "rgba(255, 255, 255, 0.25)",
+    fondo: "#080607"
+  },
+  lila: {
+    principal: "#c9b6ff",
+    secundario: "#efe7ff",
+    box: "rgba(231, 222, 255, 0.18)",
+    borde: "rgba(255, 255, 255, 0.24)",
+    fondo: "#080711"
+  },
+  celeste: {
+    principal: "#a9d8ee",
+    secundario: "#e0f5ff",
+    box: "rgba(220, 245, 255, 0.18)",
+    borde: "rgba(255, 255, 255, 0.24)",
+    fondo: "#061014"
+  },
+  dorado: {
+    principal: "#e7c573",
+    secundario: "#fff1c8",
+    box: "rgba(255, 241, 200, 0.16)",
+    borde: "rgba(255, 255, 255, 0.22)",
+    fondo: "#0d0904"
+  },
+  verde: {
+    principal: "#b8dfca",
+    secundario: "#e8fff1",
+    box: "rgba(226, 255, 239, 0.16)",
+    borde: "rgba(255, 255, 255, 0.22)",
+    fondo: "#06100b"
+  }
+};
 
-setInterval(()=>{
- const now = new Date().getTime();
- let diff = new Date(CONFIG.eventDate).getTime() - now;
+const FUENTES = {
+  elegante: {
+    titulo: "'Great Vibes', cursive",
+    texto: "'Cormorant Garamond', serif"
+  },
+  romantica: {
+    titulo: "'Parisienne', cursive",
+    texto: "'Lora', serif"
+  },
+  moderna: {
+    titulo: "'Playfair Display', serif",
+    texto: "'Montserrat', sans-serif"
+  },
+  dulce: {
+    titulo: "'Sacramento', cursive",
+    texto: "'Quicksand', sans-serif"
+  },
+  clasica: {
+    titulo: "'Allura', cursive",
+    texto: "'Libre Baskerville', serif"
+  },
+  glam: {
+    titulo: "'Dancing Script', cursive",
+    texto: "'Marcellus', serif"
+  }
+};
 
- if (diff <= 0) {
-  document.getElementById("d").innerText = 0;
-  document.getElementById("h").innerText = 0;
-  document.getElementById("m").innerText = 0;
-  document.getElementById("s").innerText = 0;
-  return;
- }
+let currentSlide = 0;
+let sliderTimer;
 
- document.getElementById("d").innerText = Math.floor(diff / 86400000);
- document.getElementById("h").innerText = Math.floor((diff % 86400000) / 3600000);
- document.getElementById("m").innerText = Math.floor((diff % 3600000) / 60000);
- document.getElementById("s").innerText = Math.floor((diff % 60000) / 1000);
-
-},1000);
-
-function scrollToInfo(){
- document.getElementById("info").scrollIntoView({behavior:"smooth"});
+function aplicarPaleta() {
+  const paleta = PALETAS[CONFIG.paleta] || PALETAS.rosa;
+  const root = document.documentElement;
+  root.style.setProperty("--color-principal", paleta.principal);
+  root.style.setProperty("--color-secundario", paleta.secundario);
+  root.style.setProperty("--color-box", paleta.box);
+  root.style.setProperty("--color-box-borde", paleta.borde);
+  root.style.setProperty("--color-fondo", paleta.fondo);
 }
 
-function toggleMusic(){
- const m=document.getElementById("music");
- m.paused ? m.play() : m.pause();
+function aplicarFuentes() {
+  const fuentes = FUENTES[CONFIG.fuentes] || FUENTES.elegante;
+  const root = document.documentElement;
+  root.style.setProperty("--title-font", fuentes.titulo);
+  root.style.setProperty("--body-font", fuentes.texto);
 }
 
-let current = 0;
+function cargarDatos() {
+  document.getElementById("name").innerText = CONFIG.nombre;
+  document.getElementById("dateText").innerText = CONFIG.fechaTexto;
+  document.getElementById("timeText").innerText = CONFIG.horaTexto;
+  document.getElementById("venueText").innerText = CONFIG.salon;
+  document.getElementById("addressText").innerText = CONFIG.direccion;
+  document.getElementById("mapLink").href = CONFIG.mapa;
+  document.getElementById("dressCodeText").innerText = CONFIG.dressCode;
 
-function initSlider(){
- const slides = document.querySelectorAll(".slide");
-
- function show(i){
-  slides.forEach(s => s.classList.remove("active"));
-  slides[i].classList.add("active");
- }
-
- setInterval(()=>{
-  current = (current + 1) % slides.length;
-  show(current);
- }, 3000);
+  const texto = encodeURIComponent(CONFIG.mensajeWhatsApp);
+  document.getElementById("confirmLink").href = `https://wa.me/${CONFIG.whatsapp}?text=${texto}`;
 }
 
-window.addEventListener("load", initSlider);
+function actualizarCuentaRegresiva() {
+  const now = Date.now();
+  const diff = new Date(CONFIG.fechaEvento).getTime() - now;
+  const restante = Math.max(diff, 0);
 
+  document.getElementById("d").innerText = Math.floor(restante / 86400000);
+  document.getElementById("h").innerText = Math.floor((restante % 86400000) / 3600000);
+  document.getElementById("m").innerText = Math.floor((restante % 3600000) / 60000);
+  document.getElementById("s").innerText = Math.floor((restante % 60000) / 1000);
+}
+
+function scrollToInfo() {
+  document.getElementById("info").scrollIntoView({ behavior: "smooth" });
+}
+
+function toggleMusic() {
+  const music = document.getElementById("music");
+  music.paused ? music.play() : music.pause();
+}
+
+function iniciarCarrusel() {
+  const track = document.getElementById("carouselTrack");
+  const dots = document.getElementById("carouselDots");
+
+  CONFIG.fotos.forEach((foto, index) => {
+    const img = document.createElement("img");
+    img.className = "slide";
+    img.src = foto;
+    img.alt = `Recuerdo ${index + 1}`;
+    track.appendChild(img);
+
+    const dot = document.createElement("button");
+    dot.className = "carousel-dot";
+    dot.type = "button";
+    dot.addEventListener("click", () => irASlide(index));
+    dots.appendChild(dot);
+  });
+
+  document.querySelector(".carousel-btn.prev").addEventListener("click", () => cambiarSlide(-1));
+  document.querySelector(".carousel-btn.next").addEventListener("click", () => cambiarSlide(1));
+
+  let startX = 0;
+  let endX = 0;
+  const viewport = document.querySelector(".carousel-viewport");
+
+  viewport.addEventListener("touchstart", event => {
+    startX = event.touches[0].clientX;
+  }, { passive: true });
+
+  viewport.addEventListener("touchmove", event => {
+    endX = event.touches[0].clientX;
+  }, { passive: true });
+
+  viewport.addEventListener("touchend", () => {
+    const distancia = endX - startX;
+    if (Math.abs(distancia) > 45) {
+      cambiarSlide(distancia > 0 ? -1 : 1);
+    }
+    startX = 0;
+    endX = 0;
+  });
+
+  viewport.addEventListener("mousedown", event => {
+    startX = event.clientX;
+  });
+
+  viewport.addEventListener("mouseup", event => {
+    const distancia = event.clientX - startX;
+    if (Math.abs(distancia) > 45) {
+      cambiarSlide(distancia > 0 ? -1 : 1);
+    }
+    startX = 0;
+  });
+
+  irASlide(0);
+  reiniciarAutoplay();
+}
+
+function irASlide(index) {
+  const total = CONFIG.fotos.length;
+  currentSlide = (index + total) % total;
+  document.getElementById("carouselTrack").style.transform = `translateX(-${currentSlide * 100}%)`;
+
+  document.querySelectorAll(".carousel-dot").forEach((dot, dotIndex) => {
+    dot.classList.toggle("active", dotIndex === currentSlide);
+  });
+
+  reiniciarAutoplay();
+}
+
+function cambiarSlide(direction) {
+  irASlide(currentSlide + direction);
+}
+
+function reiniciarAutoplay() {
+  clearInterval(sliderTimer);
+  sliderTimer = setInterval(() => cambiarSlide(1), 3600);
+}
+
+aplicarPaleta();
+aplicarFuentes();
+cargarDatos();
+actualizarCuentaRegresiva();
+setInterval(actualizarCuentaRegresiva, 1000);
+window.addEventListener("load", iniciarCarrusel);
 </script>
 
 </body>
 </html>
+```
